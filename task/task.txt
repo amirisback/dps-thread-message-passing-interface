@@ -1,0 +1,10 @@
+Selamat pagi teman-teman.
+Minggu ini merupakan pertemuan terakhir kita, seperti yang telah disampaikan sebelumnya bahwa tidak ada UAS, namun ada COTS.
+Berikut instruksi COTS-2 yang disesuaikan karena kondisi saat ini:
+
+Telah dilampirkan sebuah file ZIP yang berisikan dua folder (Thread dan MPI), dimana di masing-masing folder telah disediakan panduan coding. Selain itu telah disediakan soal pada lampiran file PDF. Ada 2 yang harus dikerjakan, yaitu tugas Thread (3 nomor) dan MPI (5 nomor):
+1. Memilih satu soal dari tugas thread dan satu soal dari MPI (diberikan nilai +10 bagi yang mengerjakan soal MPI nomor 3 dan 4 dan +15 untuk soal nomor 5 MPI).
+2. Melengkapi source code sesuai dengan nomor yang dipilih.
+3. Melakukan sedikit modifikasi dari source code tersebut untuk membedakan dengan kelompok lain.
+3. Membuat video singkat hasil implementasi pada point 2. Satu video untuk satu soal, jadi akan ada dua video dengan masing-masing video berdurasi minimal 2 menit dan maksimal 5 menit.
+4. Dikerjakan secara berkelompok. Untuk jawaban silahkan langsung menjawab pada assigment ini dengan menyertakan link video

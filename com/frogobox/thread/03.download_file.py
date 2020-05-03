@@ -90,6 +90,6 @@ def main(url=None, splitBy=3):
 
 
 if __name__ == '__main__':
-    nama_kelompok()
+    team_identity()
     main(URL_IMAGE_DEFAULT)
     main(URL_IMAGE_TELKOM)

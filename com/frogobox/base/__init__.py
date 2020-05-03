@@ -2,7 +2,7 @@
 # Created by Faisal Amir
 # FrogoBox Inc License
 # -----------------------------------------
-# thread-Message-Passing-Interface
+# Thread-Message-Passing-Interface
 # Copyright (C) 03/05/2020.      
 # All rights reserved
 # -----------------------------------------

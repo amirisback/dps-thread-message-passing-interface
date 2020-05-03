@@ -4,7 +4,7 @@ import threading
 import urllib.request, urllib.error, urllib.parse
 import time
 
-url = "https://apod.nasa.gov/apod/image/1901/LOmbradellaTerraFinazzi.jpg"
+from com.frogobox.base.config import *
 
 """
     Fungsi untuk membagi range dari total bytes yang akan di download
@@ -32,77 +32,64 @@ def buildRange(value, numsplits):
 class SplitBufferThreads(threading.Thread):
     def __init__(self, url, byteRange):
         super(SplitBufferThreads, self).__init__()
-        # Inisiasi string url file yg akan di download
-        self.__url = url
-        # Inisiasi bytesrange yang akan di download
-        self.__byteRange = byteRange
+        self.__url = url  # Inisiasi alamat file
+        self.__byteRange = byteRange  # Inisiasi bytesrange yang akan di download
         self.req = None
 
     def run(self):
-        # Melakukan request download pada suatu bytesrange
-        self.req = urllib.request.Request(self.__url, headers={'Range': 'bytes=%s' % self.__byteRange})
+        self.req = urllib.request.Request(self.__url, headers={
+            'Range': 'bytes=%s' % self.__byteRange})  # Request download
 
     def getFileData(self):
-        # Melakukan stream buffer pada url target
-        return urllib.request.urlopen(self.req).read()
+        return urllib.request.urlopen(self.req).read()  # Melakukan stream buffer
 
 
 def main(url=None, splitBy=3):
-    # Catat waktu mulai download
-    start_time = time.time()
+    print()
+    start_time = time.time()  # Catat waktu download
     if not url:
         print("Please Enter some url to begin download.")
         return
 
-    # Mengambil filename dengan cara mengambil suffix terakhir dari string url dengan delimiter '/'
-    fileName = url.split('/')[-1]
+    fileName = url.split('/')[
+        -1]  # mendapatkan filename
 
-    # Menyimpan ukuran file kedalam suatu variable
+    # Menyimpan ukuran file
     sizeInBytes = requests.head(url, headers={'Accept-Encoding': 'identity'}).headers.get('content-length', None)
+    print("%s bytes to download." % sizeInBytes)  # print ukuran file yang di download
 
-    # Tampilkan ukuran bytes ke monitor
-    print("%s bytes to download." % sizeInBytes)
-
-    # Buat handler apabila size tidak ada lalu keluar dari program
     if not sizeInBytes:
-        print("Size cannot be determined.")
+        print("Size cannot be determined.")  # Buat handler apabila size tidak ada lalu keluar dari program
         return
 
-    # Buat variable untuk menampung buffer yang akan di split saat proses download dengan threading dilakukan
-    dataLst = []
+    dataLst = []  # Buat variable untuk menampung buffer
 
     for idx in range(splitBy):
-        # Bagi total bytes kedalam 3 range
-        byteRange = buildRange(int(sizeInBytes), splitBy)[idx]
+        byteRange = buildRange(int(sizeInBytes), splitBy)[idx]  # Bagi total bytes kedalam 3 range
 
-        # Menyimpan buffer file yang sedang di download pada suatu variable untuk nanti digabungkan
-        bufTh = SplitBufferThreads(url, byteRange)
+        bufTh = SplitBufferThreads(url, byteRange)  # Menyimpan buffer file
 
-        # Process download file (dalam buffer) dimulai
-        bufTh.start()
+        bufTh.start()  # Process download file
 
-        # Menyatukan buffer proese download pada tiap thread
-        bufTh.join()
+        bufTh.join()  # Menyatukan buffer proses download pada tiap thread
 
-        # Memasukan buffer yang terpisah 3 menjadi 1 dalam 1 variable penampung
-        dataLst.append(bufTh.getFileData())
+        dataLst.append(bufTh.getFileData())  # Memasukan buffer yang terpisah 3 menjadi 1 dalam 1 variable penampung
 
-    # Konversi tipe data buffer string menjadi byte dengan menambahkan prefix b (bytes)
-    content = b''.join(dataLst)
+    content = b''.join(dataLst)  # Konversi tipe data buffer
 
     if dataLst:
-        # Apabila file sudah ada pada target direktori download maka timpa file tersebut
-        if os.path.exists(fileName):
+        if os.path.exists(fileName):  # Apabila file sudah ada pada target direktori download maka timpa file tersebut
             os.remove(fileName)
 
-        # Catat waktu selesai, lalu tampilkan waktu berjalannya proses downlaod
-        print("--- %s seconds ---" % str(time.time() - start_time))
+        print("--- %s seconds ---" % str(time.time() - start_time))  # tampilkan waktu berjalannya proses downlaod
 
-        # Tulis string bytes kedalam suatu file, lalu akan dihasilkan suatu file baru
+        # buat string bytes kedalam suatu file dan menghasilkan suatu file baru
         with open(fileName, 'wb') as fh:
             fh.write(content)
         print("Finished Writing file %s" % fileName)
 
 
 if __name__ == '__main__':
-    main(url)
+    nama_kelompok()
+    main(URL_IMAGE_DEFAULT)
+    main(URL_IMAGE_TELKOM)

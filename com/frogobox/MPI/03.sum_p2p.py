@@ -1,16 +1,3 @@
-# import mpi4py
-"""
-    Cara menjalankan 
-     1. pip install mpi4py
-     2. 
-        (Windows)
-        2a.1. Install Windows MPI (https://docs.microsoft.com/en-us/message-passing-interface/microsoft-mpi)
-        2a.2. Apabila telah ter install jalankan dengan run command `mpiexec -n [JUMLAH_PROSES] python [NAMA_FILE].py`
-        
-        (Linux)
-        2b.1 mpirun -np [JUMLAH_PROSES] python [NAMA_FILE].py
-"""
-
 from mpi4py import MPI
 
 # import library random untuk generate angka integer secara random

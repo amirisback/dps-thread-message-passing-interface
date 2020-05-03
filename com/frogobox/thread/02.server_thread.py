@@ -53,7 +53,7 @@ def start_server():
             Thread(target=client_thread, args=(connection, ip, port)).start()
         except:
             # print kesalahan jika thread tidak berhasil dijalankan
-            print("Thread tidak berjalan.")
+            print("thread tidak berjalan.")
             traceback.print_exc()
 
     # tutup socket

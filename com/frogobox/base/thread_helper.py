@@ -2,8 +2,8 @@
 # Created by Faisal Amir
 # FrogoBox Inc License
 # -----------------------------------------
-# thread-Message-Passing-Interface
-# Copyright (C) 27/04/2020.      
+# Thread-Message-Passing-Interface
+# Copyright (C) 03/05/2020.      
 # All rights reserved
 # -----------------------------------------
 # Name     : Muhammad Faisal Amir

@@ -19,5 +19,11 @@
 - Team Name
 ![ScreenShoot Apps](docs/image/team_name.png?raw=true)
 
+- mpi
+![ScreenShoot Apps](docs/image/ss_mpi.png?raw=true)
+
+- thread
+![ScreenShoot Apps](docs/image/ss_thread.png?raw=true)
+
 # Attention !!!
 Please enjoy and don't forget fork and give a star

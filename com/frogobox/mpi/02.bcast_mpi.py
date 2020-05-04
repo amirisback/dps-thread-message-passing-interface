@@ -3,7 +3,7 @@ from mpi4py import MPI
 
 # buat COMM
 
-BROADCAST_MESSAGE = "Hello, rank 0 disini, mengirim ke semua rank"
+BROADCAST_MESSAGE = "This is Rank 0, send to all ranks"
 
 
 def team_identity():
@@ -16,7 +16,7 @@ def team_identity():
 
 
 def broadcast_receive_message(rank, data):
-    return "Pesan yang diterima pada rank " + str(rank) + ": " + data
+    return "Message received on rank " + str(rank) + ": " + data
 
 
 comm = MPI.COMM_WORLD
@@ -36,4 +36,4 @@ else:
     print(broadcast_receive_message(rank, data))
 
 # How To Run
-# mpiexec -n 5 python 02.bcast_mpi.py
+# mpiexec -n 100 python 02.bcast_mpi.py

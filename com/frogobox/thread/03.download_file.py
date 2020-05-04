@@ -91,5 +91,8 @@ def main(url=None, splitBy=3):
 
 if __name__ == '__main__':
     team_identity()
+    print("----------------------------")
+    print("DEFAULT : " + URL_IMAGE_DEFAULT)
+    print("TELKOM : " + URL_IMAGE_TELKOM)
     main(URL_IMAGE_DEFAULT)
     main(URL_IMAGE_TELKOM)
